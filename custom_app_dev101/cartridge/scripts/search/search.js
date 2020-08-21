@@ -20,7 +20,7 @@ var baseModule = module.superModule;
 function updateSearchTerm(productSearch) {
     var isPrefEnabled = dw.system.Site.current.preferences.custom && dw.system.Site.current.preferences.custom.enableWeatherSearchTerm;
     if (isPrefEnabled) {
-        if (customer.profile && 'SUMMER'.equals(customer.profile.custom.weather_preference) && 'WINTER'.equals(customer.profile.custom.weather_preference) && 'RAIN'.equals(customer.profile.custom.weather_preference)) { // if profile preference is set
+        if (customer.profile && ('SUMMER'.equals(customer.profile.custom.weather_preference) || 'WINTER'.equals(customer.profile.custom.weather_preference) || 'RAIN'.equals(customer.profile.custom.weather_preference))) { // if profile preference is set
             var weatherPreference = customer.profile.custom.weather_preference;
             productSearch.setSearchPhrase(weatherPreference);
         } else { // call the weather API service
